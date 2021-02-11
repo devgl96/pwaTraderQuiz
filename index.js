@@ -176,6 +176,25 @@ if("serviceWorker" in navigator) {
 }
 
 // Trying make a push notification
+// This ask to user if would like to receive notifications
 Notification.requestPermission(function(status) {
     console.log('Notification permission status: ', status);
 });
+
+// Creating a function notification
+function displayNotification() {
+    if(Notification.permission === "granted") {
+        navigator.serviceWorker.getRegistration().then(function(reg) {
+            var options = {
+                body: "Aqui Você é Um Trader de Verdade!",
+                icon: "images/bullVsBearWallpaper.png",
+                vibrate: [100, 50, 100],
+                data: {
+                    dateOfArrival: Date.now(), 
+                    primaryKey: 1
+                }
+            };
+            reg.showNotification("Olá Trader!", options);
+        });
+    }
+}
