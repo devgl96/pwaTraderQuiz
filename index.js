@@ -103,7 +103,7 @@ const answerRight = async () => {
             divAnswerResponse[0].appendChild(headerAnswer);
             divAnswerResponse[0].appendChild(imageAnswer);
             
-            id = setInterval(frame, 8);
+            id = setInterval(frame, 16);
             
             // alert("Parabéns!");
         } else {
@@ -117,7 +117,7 @@ const answerRight = async () => {
             divAnswerResponse[0].appendChild(headerAnswer);
             divAnswerResponse[0].appendChild(imageAnswer);
             
-            id = setInterval(frame, 8);
+            id = setInterval(frame, 16);
             
             // alert("Estude Mais!");
         }
