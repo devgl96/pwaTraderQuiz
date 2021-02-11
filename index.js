@@ -174,3 +174,8 @@ if("serviceWorker" in navigator) {
         .catch(err => console.error("SW Not Registerd! Error: ", err));
     });
 }
+
+// Trying make a push notification
+Notification.requestPermission(function(status) {
+    console.log('Notification permission status: ', status);
+});
