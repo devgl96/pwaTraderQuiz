@@ -103,7 +103,7 @@ const answerRight = async () => {
             divAnswerResponse[0].appendChild(headerAnswer);
             divAnswerResponse[0].appendChild(imageAnswer);
             
-            id = setInterval(frame, 16);
+            id = setInterval(frame, 4);
             
             // alert("Parabéns!");
         } else {
@@ -117,13 +117,13 @@ const answerRight = async () => {
             divAnswerResponse[0].appendChild(headerAnswer);
             divAnswerResponse[0].appendChild(imageAnswer);
             
-            id = setInterval(frame, 16);
+            id = setInterval(frame, 4);
             
             // alert("Estude Mais!");
         }
     
         // Refresh the page
-        setTimeout(() => location.reload(), 3000);
+        setTimeout(() => location.reload(), 5000);
     } 
 };
 
