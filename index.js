@@ -63,65 +63,68 @@ let toogleDark = true;
 // Function to verify if the answer is correct
 const answerRight = async () => {
     // Get the answer typed for user
-    let takeTheAnswer = document.getElementsByTagName('input')[0].value;
+    let takeTheAnswer = document.getElementById('padraoCandle').value;
+    console.log("TaketheAnswer: ", takeTheAnswer);
+    if(takeTheAnswer !== null && takeTheAnswer !== '') {
+        console.log("I have the answer!", takeTheAnswer);
+        // Position of elements
+        let pos = 0;
     
-    // Position of elements
-    let pos = 0;
-
-    // Identification of movement
-    let id;
-
-    // Function to make a animation
-    function frame() {
-        if(pos == 900) {
-            for(let i = 0; i <= divAnswerResponse.length; i++) {
-                divAnswerResponse[i].remove();
+        // Identification of movement
+        let id;
+    
+        // Function to make a animation
+        function frame() {
+            if(pos == 900) {
+                for(let i = 0; i <= divAnswerResponse.length; i++) {
+                    divAnswerResponse[i].remove();
+                }
+    
+                clearInterval(id);
+            } else {
+                pos++; 
+                for(let i = 0; i < divAnswerResponse.length; i++) {
+                    divAnswerResponse[i].style.top = pos + 'px';
+                } 
             }
-
-            clearInterval(id);
-        } else {
-            pos++; 
-            for(let i = 0; i < divAnswerResponse.length; i++) {
-                divAnswerResponse[i].style.top = pos + 'px';
-            } 
         }
-    }
-
-    divAnswerResponse[0].style.display = "block";
     
-    // Comparing if the answer is correct
-    if(takeTheAnswer.toLowerCase() === answerCurrent.toLowerCase()) {
-        let textRightAnswer = document.createTextNode('Parabéns!');
-        headerAnswer.appendChild(textRightAnswer);
+        divAnswerResponse[0].style.display = "block";
         
-        divAnswerResponse[0].classList.add('right-answer');
-        
-        imageAnswer.src = './images/bullTrader.png';
-        
-        divAnswerResponse[0].appendChild(headerAnswer);
-        divAnswerResponse[0].appendChild(imageAnswer);
-        
-        id = setInterval(frame, 4);
-        
-        // alert("Parabéns!");
-    } else {
-        let textWrongAnswer = document.createTextNode('Estude Mais!');
-        headerAnswer.appendChild(textWrongAnswer);
-        
-        divAnswerResponse[0].classList.add('wrong-answer');
-
-        imageAnswer.src = './images/bearTrader.png';
-        
-        divAnswerResponse[0].appendChild(headerAnswer);
-        divAnswerResponse[0].appendChild(imageAnswer);
-        
-        id = setInterval(frame, 4);
-        
-        // alert("Estude Mais!");
-    }
-
-    // Refresh the page
-    setTimeout(() => location.reload(), 3000);
+        // Comparing if the answer is correct
+        if(takeTheAnswer.toLowerCase() === answerCurrent.toLowerCase()) {
+            let textRightAnswer = document.createTextNode('Parabéns!');
+            headerAnswer.appendChild(textRightAnswer);
+            
+            divAnswerResponse[0].classList.add('right-answer');
+            
+            imageAnswer.src = './images/bullTrader.png';
+            
+            divAnswerResponse[0].appendChild(headerAnswer);
+            divAnswerResponse[0].appendChild(imageAnswer);
+            
+            id = setInterval(frame, 4);
+            
+            // alert("Parabéns!");
+        } else {
+            let textWrongAnswer = document.createTextNode('Estude Mais!');
+            headerAnswer.appendChild(textWrongAnswer);
+            
+            divAnswerResponse[0].classList.add('wrong-answer');
+    
+            imageAnswer.src = './images/bearTrader.png';
+            
+            divAnswerResponse[0].appendChild(headerAnswer);
+            divAnswerResponse[0].appendChild(imageAnswer);
+            
+            id = setInterval(frame, 4);
+            
+            // alert("Estude Mais!");
+        }
+    
+        // Refresh the page
+        setTimeout(() => location.reload(), 3000);
+    } 
 };
 
 // Function random images

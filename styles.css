@@ -276,14 +276,14 @@ form .action-button:hover {
     }
 
     .form_field:placeholder-shown ~ .form_label {
-        top: 37.8rem;
+        top: 40.8rem;
     }
     
     .form_label {
-        top: 36rem;
+        top: 39rem;
     }
       
     .form_field:focus ~ .form_label {
-        top: 36rem;    
+        top: 39rem;    
     }
 }
