@@ -121,6 +121,7 @@ input:checked + .slider:before {
 .response-answer {
     display: none;
     position: absolute;
+    margin: auto;
     width: 100px;
     height: 100px;
     top: 0;

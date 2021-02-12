@@ -75,7 +75,7 @@ const answerRight = async () => {
     
         // Function to make a animation
         function frame() {
-            if(pos == 900) {
+            if(pos == 10000) {
                 for(let i = 0; i <= divAnswerResponse.length; i++) {
                     divAnswerResponse[i].remove();
                 }
@@ -84,6 +84,7 @@ const answerRight = async () => {
             } else {
                 pos++; 
                 for(let i = 0; i < divAnswerResponse.length; i++) {
+                    console.log(i);
                     divAnswerResponse[i].style.top = pos + 'px';
                 } 
             }
@@ -103,7 +104,7 @@ const answerRight = async () => {
             divAnswerResponse[0].appendChild(headerAnswer);
             divAnswerResponse[0].appendChild(imageAnswer);
             
-            id = setInterval(frame, 4);
+            id = setInterval(frame, 1);
             
             // alert("Parabéns!");
         } else {
@@ -117,7 +118,7 @@ const answerRight = async () => {
             divAnswerResponse[0].appendChild(headerAnswer);
             divAnswerResponse[0].appendChild(imageAnswer);
             
-            id = setInterval(frame, 4);
+            id = setInterval(frame, 1);
             
             // alert("Estude Mais!");
         }
@@ -180,24 +181,24 @@ if("serviceWorker" in navigator) {
 
 // Trying make a push notification
 // This ask to user if would like to receive notifications
-Notification.requestPermission(function(status) {
-    console.log('Notification permission status: ', status);
-});
+// Notification.requestPermission(function(status) {
+//     console.log('Notification permission status: ', status);
+// });
 
 // Creating a function notification
-function displayNotification() {
-    if(Notification.permission === "granted") {
-        navigator.serviceWorker.getRegistration().then(function(reg) {
-            var options = {
-                body: "Aqui Você é Um Trader de Verdade!",
-                icon: "images/bullVsBearWallpaper.png",
-                vibrate: [100, 50, 100],
-                data: {
-                    dateOfArrival: Date.now(), 
-                    primaryKey: 1
-                }
-            };
-            reg.showNotification("Olá Trader!", options);
-        });
-    }
-}
+// function displayNotification() {
+//     if(Notification.permission === "granted") {
+//         navigator.serviceWorker.getRegistration().then(function(reg) {
+//             var options = {
+//                 body: "Aqui Você é Um Trader de Verdade!",
+//                 icon: "images/bullVsBearWallpaper.png",
+//                 vibrate: [100, 50, 100],
+//                 data: {
+//                     dateOfArrival: Date.now(), 
+//                     primaryKey: 1
+//                 }
+//             };
+//             reg.showNotification("Olá Trader!", options);
+//         });
+//     }
+// }
