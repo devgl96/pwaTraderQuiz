@@ -36,6 +36,12 @@ const answers = [
     "piercing alta"
 ];
 
+// Prevent default button
+var submit_form = document.getElementById("form");
+
+// Remove the prevent default
+submit_form.onsubmit = (e) => {e.preventDefault();};
+
 // Get the div to put the images
 let divImageRandom = document.getElementsByClassName("cards-candles");
 
@@ -63,7 +69,7 @@ let toogleDark = true;
 // Function to verify if the answer is correct
 const answerRight = async () => {
     // Get the answer typed for user
-    let takeTheAnswer = document.getElementById('padraoCandle').value;
+    let takeTheAnswer = document.getElementsByClassName('form_field')[0].value;
     console.log("TaketheAnswer: ", takeTheAnswer);
     if(takeTheAnswer !== null && takeTheAnswer !== '') {
         console.log("I have the answer!", takeTheAnswer);
@@ -75,7 +81,7 @@ const answerRight = async () => {
     
         // Function to make a animation
         function frame() {
-            if(pos == 10000) {
+            if(pos == 550) {
                 for(let i = 0; i <= divAnswerResponse.length; i++) {
                     divAnswerResponse[i].remove();
                 }
@@ -84,7 +90,7 @@ const answerRight = async () => {
             } else {
                 pos++; 
                 for(let i = 0; i < divAnswerResponse.length; i++) {
-                    console.log(i);
+                    // console.log(i);
                     divAnswerResponse[i].style.top = pos + 'px';
                 } 
             }
@@ -124,7 +130,7 @@ const answerRight = async () => {
         }
     
         // Refresh the page
-        setTimeout(() => location.reload(), 5000);
+        setTimeout(() => location.reload(), 2000);
     } 
 };
 
